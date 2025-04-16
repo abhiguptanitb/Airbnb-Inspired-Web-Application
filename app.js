@@ -1,7 +1,6 @@
 if(process.env.NODE_ENV!="production") {
     require('dotenv').config();
 }
-// console.log(process.env.SECRET);
 
 const express=require("express");
 const app=express();
@@ -37,7 +36,7 @@ const dbUrl=process.env.ATLASDB_URL;
 const store=MongoStore.create({
     mongoUrl:dbUrl,
     crypto:{
-        secret:"process.env.SECRET"
+        secret:process.env.SECRET
     },
     touchAfter:24*3600, //in seconds
 })
@@ -48,7 +47,7 @@ store.on("error",()=>{
 
 const sessionOptions={
     store,
-    secret:"process.env.SECRET",
+    secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
     cookie:{

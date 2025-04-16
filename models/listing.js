@@ -2,35 +2,6 @@ const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
 const Review=require("./review.js");
 
-// const imageSchema = new Schema({
-//     filename: {
-//         type: String,
-//         default: "listingimage"
-//     },
-//     url: {
-//         type: String,
-//         default: "https://unsplash.com/photos/two-brown-deer-beside-trees-and-mountain-UCd78vfC8vU"
-//     }
-// });
-
-// const listingSchema = new Schema({
-//     title: {
-//         type: String,
-//         required: true,
-//     },
-//     description: String,
-//     image: {
-//         type: imageSchema,
-//         default: {
-//             filename: "listingimage",
-//             url: "https://unsplash.com/photos/two-brown-deer-beside-trees-and-mountain-UCd78vfC8vU"
-//         }
-//     },
-//     price: Number,
-//     location: String,
-//     country: String,
-// });
-
 const listingSchema=new Schema({
     title:{
         type:String,
@@ -40,13 +11,6 @@ const listingSchema=new Schema({
     image:{
         url:String,
         filename:String,
-        // type:String,
-        // default:
-        //     "https://unsplash.com/photos/two-brown-deer-beside-trees-and-mountain-UCd78vfC8vU",
-        // set:(v)=>
-        //     v===""
-        // ?"https://unsplash.com/photos/two-brown-deer-beside-trees-and-mountain-UCd78vfC8vU"
-        // :v,
     },
     price:Number,
     location:String,
