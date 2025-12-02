@@ -1,7 +1,36 @@
 <% layout("/layouts/boilerplate")%>
+<style>
+    .form-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+        border-radius: 1.5rem;
+    }
+
+    .form-hero h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    .form-hero p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+    }
+
+    .current-image {
+        border-radius: 1rem;
+        box-shadow: var(--shadow-md);
+        margin-bottom: 1rem;
+        max-width: 300px;
+    }
+</style>
+
 <div class="row mt-3">
-    <div class="col-8 offset-2">
-        <h3>Edit your Listing</h3>
+    <div class="col-10 offset-1 col-lg-8 offset-lg-2">
+        <div class="form-hero">
+            <h3><i class="fa-solid fa-edit"></i> Edit your Listing</h3>
+            <p>Update your property details</p>
+        </div>
         <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -15,15 +44,17 @@
                 <div class="invalid-feedback">Please enter a short description</div>
             </div>
 
-            <div class="mb-3">
-                Original Listing Image <br>
-                <img src="<%=originalImageUrl%>"/>
+            <div class="form-group">
+                <label class="form-label">Current Image</label>
+                <div>
+                    <img src="<%=originalImageUrl%>" class="current-image" alt="Current listing image"/>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="image" class="form-label">Upload New Image</label>
-                <input name="listing[image]" type="file" class="form-control">
-                <!-- <div class="invalid-feedback">Please enter a valid Link for image</div> -->
+            <div class="form-group">
+                <label for="image" class="form-label">Upload New Image (Optional)</label>
+                <input name="listing[image]" type="file" class="form-control" id="image">
+                <small class="text-muted">Leave empty to keep current image</small>
             </div>
 
             <div class="row">

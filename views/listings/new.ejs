@@ -1,8 +1,63 @@
 <% layout("/layouts/boilerplate")%>
+<style>
+    .form-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+        border-radius: 1.5rem;
+    }
+
+    .form-hero h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    .form-hero p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .file-upload-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .file-upload-label {
+        display: block;
+        padding: 1.5rem;
+        border: 2px dashed var(--border-color);
+        border-radius: 1rem;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+        background: var(--bg-light);
+    }
+
+    .file-upload-label:hover {
+        border-color: var(--primary-color);
+        background: rgba(99, 102, 241, 0.05);
+    }
+
+    .file-upload-label i {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+</style>
+
 <div class="row mt-3">
-    <div class="col-8 offset-2">
-        <h3>Create a New Listing</h3>
-        <br>
+    <div class="col-10 offset-1 col-lg-8 offset-lg-2">
+        <div class="form-hero">
+            <h3><i class="fa-solid fa-plus-circle"></i> Create a New Listing</h3>
+            <p>Share your property with travelers around the world</p>
+        </div>
         <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -19,10 +74,16 @@
                 <input name="listing[image]" placeholder="enter image URL/Link" type="text" class="form-control">
             </div> -->
 
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="image" class="form-label">Upload Listing Image</label>
-                <input name="listing[image]" type="file" class="form-control" required>
-                
+                <div class="file-upload-wrapper">
+                    <label for="image" class="file-upload-label">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span>Click to upload or drag and drop</span>
+                        <small style="display: block; margin-top: 0.5rem; color: var(--text-light);">PNG, JPG, JPEG up to 10MB</small>
+                    </label>
+                    <input name="listing[image]" type="file" class="form-control" id="image" required style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;">
+                </div>
             </div>
 
             <div class="row">
