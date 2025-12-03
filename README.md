@@ -99,7 +99,7 @@ StayHub is a comprehensive property rental platform that enables users to discov
 
 ```bash
 git clone https://github.com/abhiguptanitb/StayHub-Property-Rental.git
-cd StayHub
+cd StayHub-Property-Rental
 ```
 
 ### Step 2: Install Dependencies
