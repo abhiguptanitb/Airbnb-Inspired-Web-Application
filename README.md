@@ -322,7 +322,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Abhi Gupta**
 
 - GitHub: [@abhiguptanitb](https://github.com/abhiguptanitb)
 - LinkedIn: [abhiguptanitb](https://linkedin.com/in/abhiguptanitb)
